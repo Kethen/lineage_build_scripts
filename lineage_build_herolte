@@ -1,0 +1,23 @@
+#!/bin/bash
+WEBKIT_REPLACEMENT="org.bromite.bromite com.android.webview"
+EXTRA_APP_SELECTION="org.fdroid.fdroid org.fdroid.fdroid.privileged org.mozilla.fennec_fdroid net.osmand.plus org.videolan.vlc net.gsantner.markor ws.xsoh.etar com.fsck.k9 net.sourceforge.opencamera com.moez.QKSMS com.gsnathan.pdfviewer org.sufficientlysecure.keychain org.documentfoundation.libreoffice"
+MICROG="GmsCore GsfProxy FakeStore MozillaNlpBackend NominatimNlpBackend com.google.android.maps.jar additional_repos.xml"
+#EAPPS="e_permissions.xml SystemUIWithLegacyRecents OpenWeatherMapWeatherProvider BlissLauncher "
+podman run \
+    --security-opt label=disable \
+    --net host \
+    -it --rm \
+    -e "BRANCH_NAME=lineage-17.1" \
+    -e "DEVICE_LIST=herolte" \
+    -e "INCLUDE_PROPRIETARY=false" \
+    -e "CUSTOM_PACKAGES=$WEBKIT_REPLACEMENT $EXTRA_APP_SELECTION $MICROG $EAPPS " \
+	-e "SIGNATURE_SPOOFING=restricted" \
+    -e "CLEAN_AFTER_BUILD=false" \
+    -v "./src:/srv/src" \
+    -v "./zips:/srv/zips" \
+    -v "./logs:/srv/logs" \
+    -v "./ccache:/srv/ccache" \
+    -v "./manifests_herolte:/srv/local_manifests:ro" \
+    -v "./userscripts:/root/userscripts:ro" \
+    -v "/etc/localtime:/etc/localtime:ro" \
+android_builder

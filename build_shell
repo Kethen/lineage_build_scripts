@@ -1,0 +1,6 @@
+podman run \
+--security-opt label=disable \
+-v ./src:/src \
+--rm -it --entrypoint /bin/bash \
+-w /src \
+android_builder
