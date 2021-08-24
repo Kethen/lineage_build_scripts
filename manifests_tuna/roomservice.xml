@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!--Device tree-->
-  <project name="zeelog/android_device_samsung_tuna" path="device/samsung/tuna" revision="cm-14.1" remote="github"/>
+  <project name="Kethen/android_device_samsung_tuna" path="device/samsung/tuna" revision="cm-14.1" remote="github"/>
   <!--Hardware-->
   <remove-project name="LineageOS/android_hardware_ti_omap4" />
   <project name="Unlegacy-Android/android_hardware_ti_omap4" path="hardware/ti/omap4" revision="stable" remote="github"/>
@@ -10,7 +10,7 @@
   <remove-project name="LineageOS/android_hardware_ti_wpan" />
   <project name="Unlegacy-Android/android_hardware_ti_wpan" path="hardware/ti/wpan" revision="stable" remote="github"/>
   <!--Kernel-->
-  <project name="zeelog/android_kernel_samsung_tuna" path="kernel/samsung/tuna" revision="cm-14.1" remote="github"/>
+  <project path="kernel/ti/omap4" name="Unlegacy-Android/android_kernel_ti_omap4" remote="github" revision="3.0/common" />
   <!--Blobs-->
   <project name="Unlegacy-Android/proprietary_vendor_samsung" path="vendor/samsung" revision="aosp-7.1" remote="github"/>
   <project name="Unlegacy-Android/proprietary_vendor_ti" path="vendor/ti" revision="stable" remote="github"/>
@@ -18,6 +18,4 @@
   <project name="LineageOS/android_external_jhead" path="external/jhead" revision="cm-14.1" remote="github"/>  
   <!--gcc 4.7-->
   <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" groups="pdk,linux,arm" clone-depth="1" remote="aosp" revision="refs/tags/android-4.4.4_r2.0.1"/>
-  <!--gcc linaro-->
-  <project path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.7-linaro" name="Kethen/android_platform_prebuilts_gcc_linux-x86_arm_arm-eabi-4.7-linaro" revision="14.01" remote="github" />
 </manifest>

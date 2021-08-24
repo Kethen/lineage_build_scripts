@@ -241,5 +241,5 @@ fi
 if [ "$BRANCH_NAME" == "cm-14.1" ]
 then
 	sed -i 's/-mapcs//g' frameworks/base/libs/hwui/Android.mk
-	sed -i 's/-mapcs//g' hardware/ti/omap4/domx/make/build.mk
+	#sed -i 's/-mapcs//g' hardware/ti/omap4/domx/make/build.mk
 fi
