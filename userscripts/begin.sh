@@ -15,4 +15,14 @@ do
 	checkout_project "$f/prebuilts/eapks"
 	checkout_project "$f/packages/apps/Dialer"
 	checkout_project "$f/lineage-sdk"
+	if [ "$f" == "CM_14_1" ]
+	then
+		checkout_project "$f/frameworks/base"
+		checkout_project "$f/hardware/ti/omap4"
+	fi
+	if [ -e $f/vendor/foss ]
+	then
+		rm -rf $f/vendor/foss
+	fi
 done
+
