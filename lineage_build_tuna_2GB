@@ -8,8 +8,8 @@ podman run \
 	--security-opt label=disable \
 	--net host \
 	-it --rm \
-	-e "BRANCH_NAME=lineage-17.1" \
-	-e "DEVICE_LIST=mido" \
+	-e "BRANCH_NAME=cm-14.1" \
+	-e "DEVICE_LIST=tuna" \
 	-e "INCLUDE_PROPRIETARY=false" \
 	-e "CUSTOM_PACKAGES=$WEBKIT_REPLACEMENT $FDROID $EXTRA_APP_SELECTION $MICROG $EAPPS " \
 	-e "SIGNATURE_SPOOFING=restricted" \
@@ -18,7 +18,7 @@ podman run \
 	-v "./zips:/srv/zips" \
 	-v "./logs:/srv/logs" \
 	-v "./ccache:/srv/ccache" \
-	-v "./manifests_mido:/srv/local_manifests:ro" \
+	-v "./manifests_tuna_2GB:/srv/local_manifests:ro" \
 	-v "./userscripts:/root/userscripts:ro" \
 	-v "/etc/localtime:/etc/localtime:ro" \
 android_builder
