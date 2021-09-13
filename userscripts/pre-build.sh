@@ -237,9 +237,29 @@ else
     fi
 fi
 
-# patching -mapcs away for clang + android7
+# patching -mapcs away for clang + android 7
 if [ "$BRANCH_NAME" == "cm-14.1" ]
 then
-	sed -i 's/-mapcs//g' frameworks/base/libs/hwui/Android.mk
-	#sed -i 's/-mapcs//g' hardware/ti/omap4/domx/make/build.mk
+	no_mapcs_device_list="tuna"
+	no_mapcs=false
+	for device in $(echo "$DEVICE_LIST" | sed 's/,/ /g')
+	do
+		for no_mapcs_device in $no_mapcs_device_list
+		do
+			if [ "$device" == "$no_mapcs_device" ]
+			then
+				no_mapcs=true
+				break
+			fi
+		done
+		if $no_mapcs
+		then
+			break
+		fi
+	done
+	if $no_mapcs
+	then
+		sed -i 's/-mapcs//g' frameworks/base/libs/hwui/Android.mk
+		#sed -i 's/-mapcs//g' hardware/ti/omap4/domx/make/build.mk
+	fi
 fi
