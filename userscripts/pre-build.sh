@@ -205,7 +205,7 @@ fi
 echo patching call recorder to ignore country restrictions, please refer to your country\'s law and use at your own risk
 if [ -e packages/apps/Dialer/java/com/android/incallui/call/CallRecorder.java ]
 then
-# android 10
+# android 10 and 11
     OLD_IFS=$IFS
     IFS=$'\n'
     echo > /tmp/CallRecorder.java
