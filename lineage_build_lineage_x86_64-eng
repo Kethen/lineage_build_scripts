@@ -9,7 +9,7 @@ podman run \
 	--net host \
 	-it --rm \
 	-e "BRANCH_NAME=lineage-18.1" \
-	-e "DEVICE_LIST=mido" \
+	-e "DEVICE_LIST=lineage_x86_64-eng" \
 	-e "INCLUDE_PROPRIETARY=false" \
 	-e "CUSTOM_PACKAGES=$WEBKIT_REPLACEMENT $FDROID $EXTRA_APP_SELECTION $MICROG $EAPPS " \
 	-e "SIGNATURE_SPOOFING=restricted" \
@@ -18,7 +18,7 @@ podman run \
 	-v "./zips:/srv/zips" \
 	-v "./logs:/srv/logs" \
 	-v "./ccache:/srv/ccache" \
-	-v "./manifests_mido:/srv/local_manifests:ro" \
+	-v "./manifests_lineage_x86_64-eng:/srv/local_manifests:ro" \
 	-v "./userscripts:/root/userscripts:ro" \
 	-v "/etc/localtime:/etc/localtime:ro" \
 android_builder
