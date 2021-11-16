@@ -163,12 +163,19 @@ then
   (
     echo ">> [$(date)] bootstraping vendor/foss"
     cd vendor/foss
+    for cmd in unzip xmlstarlet
+    do
+        if [ -z "$(command -v $cmd)" ]
+        then
+            apt-get update; apt-get install -y $cmd
+        fi
+    done
     bash update.sh
   )
   if [ -d "prebuilts/prebuiltapks" ]
   then
-	rm -rf prebuilts/prebuiltapks/FDroidPrivilegedExtension
-	rm -rf prebuilts/prebuiltapks/FDroid
+    rm -rf prebuilts/prebuiltapks/FDroidPrivilegedExtension
+    rm -rf prebuilts/prebuiltapks/FDroid
   fi
 fi
 

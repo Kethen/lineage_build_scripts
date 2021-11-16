@@ -8,7 +8,7 @@ podman run \
 	--security-opt label=disable \
 	--net host \
 	-it --rm \
-	-e "BRANCH_NAME=lineage-18.1" \
+	-e "BRANCH_NAME=lineage-17.1" \
 	-e "DEVICE_LIST=mido" \
 	-e "INCLUDE_PROPRIETARY=false" \
 	-e "CUSTOM_PACKAGES=$WEBKIT_REPLACEMENT $FDROID $EXTRA_APP_SELECTION $MICROG $EAPPS " \

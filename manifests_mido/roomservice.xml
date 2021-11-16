@@ -1,11 +1,8 @@
 <manifest>
   <!--Device tree-->
-  <project name="zeelog/android_device_xiaomi_mido" path="device/xiaomi/mido" revision="lineage-18.1" remote="github"/>
-  <!--Hardware-->
-  <project name="LineageOS/android_hardware_xiaomi" path="hardware/xiaomi" revision="lineage-18.1" remote="github"/>
+  <project name="zeelog/android_device_xiaomi_mido" path="device/xiaomi/mido" revision="lineage-17.1" remote="github"/>
   <!--Kernel-->
-  <project name="zeelog/android_kernel_xiaomi_mido" path="kernel/xiaomi/mido" revision="lineage-18.1" remote="github"/>
+  <project name="zeelog/android_kernel_xiaomi_mido" path="kernel/xiaomi/mido" revision="lineage-17.1" remote="github"/>
   <!--Blobs-->
-  <project name="zeelog/proprietary_vendor_xiaomi" path="vendor/xiaomi" revision="lineage-18.1" remote="github"/>
-
+  <project name="zeelog/proprietary_vendor_xiaomi" path="vendor/xiaomi" revision="lineage-17.1" remote="github"/>
 </manifest>
