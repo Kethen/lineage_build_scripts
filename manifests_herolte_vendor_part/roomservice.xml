@@ -4,6 +4,8 @@
   <project name="8890q/android_device_samsung_hero2lte" path="device/samsung/hero2lte" revision="lineage-18.1" remote="github"/>
   <project name="8890q/android_device_samsung_herolte" path="device/samsung/herolte" revision="lineage-18.1" remote="github"/>
   <project name="Kethen/android_device_samsung_universal8890-common" path="device/samsung/universal8890-common" revision="lineage-18.1-vendor-part" remote="github"/>
+  <!--runtime resources overlay -->
+  <project name="Kethen/android_device_samsung_universal8890-common-vendor-overlay" path="device/samsung/universal8890-common-vendor-overlay" revision="lineage-18.1-vendor-part" remote="github"/>
   <!--Kernel-->
   <project name="Kethen/android_kernel_samsung_universal8890" path="kernel/samsung/universal8890" revision="lineage-18.1-vendor-part" remote="github"/>
   <!--Blobs-->
