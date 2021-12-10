@@ -21,4 +21,4 @@ podman run \
 	-v "./manifests_tuna_2GB:/srv/local_manifests:ro" \
 	-v "./userscripts:/root/userscripts:ro" \
 	-v "/etc/localtime:/etc/localtime:ro" \
-android_builder
+docker-lineage-cicd

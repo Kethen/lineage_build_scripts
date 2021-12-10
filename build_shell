@@ -3,4 +3,4 @@ podman run \
 -v ./src:/src \
 --rm -it --entrypoint /bin/bash \
 -w /src \
-android_builder
+docker-lineage-cicd
