@@ -8,17 +8,21 @@ podman run \
 	--security-opt label=disable \
 	--net host \
 	-it --rm \
-	-e "BRANCH_NAME=lineage-18.1" \
+	-e "BRANCH_NAME=lineage-19.1" \
 	-e "DEVICE_LIST=hero2lte" \
 	-e "INCLUDE_PROPRIETARY=false" \
 	-e "CUSTOM_PACKAGES=$WEBKIT_REPLACEMENT $FDROID $EXTRA_APP_SELECTION $MICROG $EAPPS " \
 	-e "SIGNATURE_SPOOFING=restricted" \
 	-e "CLEAN_AFTER_BUILD=false" \
+	-e "SKIP_VINTF_PATCH=true" \
+	-e "PATCH_BPFL=true" \
+	-e "REPOPICK=326385" \
 	-v "./src:/srv/src" \
 	-v "./zips:/srv/zips" \
 	-v "./logs:/srv/logs" \
 	-v "./ccache:/srv/ccache" \
 	-v "./manifests_herolte_vendor_part:/srv/local_manifests:ro" \
 	-v "./userscripts:/root/userscripts:ro" \
+	-v "./patches:/patches" \
 	-v "/etc/localtime:/etc/localtime:ro" \
 docker-lineage-cicd

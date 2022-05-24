@@ -20,5 +20,6 @@ podman run \
 	-v "./ccache:/srv/ccache" \
 	-v "./manifests_herolte:/srv/local_manifests:ro" \
 	-v "./userscripts:/root/userscripts:ro" \
+	-v "./patches:/patches"
 	-v "/etc/localtime:/etc/localtime:ro" \
 docker-lineage-cicd

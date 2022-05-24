@@ -15,6 +15,10 @@ do
 	checkout_project "$f/prebuilts/eapks"
 	checkout_project "$f/packages/apps/Dialer"
 	checkout_project "$f/lineage-sdk"
+	checkout_project "$f/build"
+	checkout_project "$f/system/bpf"
+	checkout_project "$f/system/netd"
+
 	if [ "$f" == "CM_14_1" ]
 	then
 		checkout_project "$f/frameworks/base"

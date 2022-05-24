@@ -163,7 +163,7 @@ then
   (
     echo ">> [$(date)] bootstraping vendor/foss"
     cd vendor/foss
-    for cmd in unzip xmlstarlet
+    for cmd in unzip xmlstarlet aapt
     do
         if [ -z "$(command -v $cmd)" ]
         then
@@ -212,7 +212,7 @@ fi
 echo patching call recorder to ignore country restrictions, please refer to your country\'s law and use at your own risk
 if [ -e packages/apps/Dialer/java/com/android/incallui/call/CallRecorder.java ]
 then
-# android 10 and 11
+# android 10, 11 and 12
     OLD_IFS=$IFS
     IFS=$'\n'
     echo > /tmp/CallRecorder.java
@@ -269,4 +269,37 @@ then
 		sed -i 's/-mapcs//g' frameworks/base/libs/hwui/Android.mk
 		#sed -i 's/-mapcs//g' hardware/ti/omap4/domx/make/build.mk
 	fi
+fi
+
+# skip vintf checking if needed
+if [ "$SKIP_VINTF_PATCH" == "true" ]
+then
+	sed -i "s/if info_dict.get('vintf_enforce') != 'true':/if True:/" build/make/tools/releasetools/check_target_files_vintf.py
+fi
+
+# for older kernels that has no bpf support
+if [ "$PATCH_BPFL" == "true" ]
+then
+	(
+		cd system/bpf
+		git apply /patches/system_bpf/0001-Ignore-bpf-errors-for-4.9-kernels.patch
+	)
+	(
+		cd system/netd
+		git apply /patches/system_netd/0001-Add-back-support-for-non-bpf-trafic-monitoring.patch
+	)
+	#sed -i 's/sleep(20);/android::base::SetProperty("bpf.progs_loaded", "1");/' system/bpf/bpfloader/BpfLoader.cpp
+	#sed -i 's/return 2;/return 0;/' system/bpf/bpfloader/BpfLoader.cpp
+
+	#sed -i 's/sleep(60);//' system/netd/server/Controllers.cpp
+	#sed -i 's/exit(1);//' system/netd/server/Controllers.cpp
+fi
+
+# run repopick on request
+if [ -n "$REPOPICK" ]
+then
+	for change in $REPOPICK
+	do
+		./vendor/lineage/build/tools/repopick.py $change
+	done
 fi
