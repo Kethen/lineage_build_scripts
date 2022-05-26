@@ -9,6 +9,10 @@ ui_print() {
 }
 
 ui_print "deploying files"
+if [ -d /tmp/workdir ]
+then
+	rm -r /tmp/workdir
+fi
 mkdir /tmp/workdir
 cd /tmp/workdir
 unzip $ZIP
