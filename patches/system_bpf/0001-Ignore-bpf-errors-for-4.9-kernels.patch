@@ -30,7 +30,7 @@ index 7a68894..788009e 100644
 -            ALOGE("--- DO NOT EXPECT SYSTEM TO BOOT SUCCESSFULLY ---");
 -            sleep(20);
 -            return 2;
-+    bool ebpf_supported = android::base::GetBoolProperty("ro.kernel.ebpf.supported", true);
++    bool ebpf_supported = false;
 +
 +    if (ebpf_supported) {
 +        // Load all ELF objects, create programs and maps, and pin them

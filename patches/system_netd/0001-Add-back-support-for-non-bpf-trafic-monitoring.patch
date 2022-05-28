@@ -541,7 +541,7 @@ index 1f2bac22..ed64e257 100644
  }
  
  void Controllers::init() {
-+    bool ebpf_supported = android::base::GetBoolProperty("ro.kernel.ebpf.supported", true);
++    bool ebpf_supported = false;
      initIptablesRules();
      Stopwatch s;
  
